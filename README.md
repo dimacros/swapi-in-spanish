@@ -8,8 +8,12 @@ Install <b>serverless</b> package: https://www.serverless.com/framework/docs/get
 git clone https://github.com/dimacros/swapi-in-spanish.git
 ```
 
-```git
+```node
 npm install
+```
+
+```node
+npx prisma generate
 ```
 
 ## Start server
