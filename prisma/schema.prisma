@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.db"
+}
+
+model People {
+  id Int @id @default(autoincrement())
+  homeworld Planet @relation(fields: [homeworldId], references: [id])
+  homeworldId Int
+  name String
+  birthYear String
+  gender String
+  height String
+  mass String
+  skinColor String
+  hairColor String
+  eyeColor String
+  films Film[]
+  species Specie[]
+  starships Starship[]
+  vehicles Vehicle[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Planet {
+  id Int @id @default(autoincrement())
+  name String @unique
+  diameter String
+  climate String
+  surfaceWater String
+  rotationPeriod String
+  terrain String
+  gravity String
+  orbitalPeriod String
+  population String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Film {
+  id Int @id @default(autoincrement())
+  producer String
+  title String
+  release DateTime
+  episodeId Int
+  director String
+  openingCrawl String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Specie {
+  id Int @id @default(autoincrement())
+  name String
+  classification String
+  eyeColors String
+  designation String
+  skinColors String
+  language String
+  hairColors String
+  averageLifespan String
+  averageHeight String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Starship {
+  id Int @id @default(autoincrement())
+  name String
+  hyperdriveRating String
+  passengers Int
+  cargoCapacity String
+  consumables String
+  maxAtmospheringSpeed String
+  crew String
+  length Float
+  model String
+  costInCredits String
+  MGLT Int
+  starshipClass String
+  manufacturer String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Vehicle {
+  id Int @id @default(autoincrement())
+  vehicleClass String
+  passengers Int
+  name String
+  cargoCapacity String
+  consumables String
+  maxAtmospheringSpeed String
+  crew String
+  length Float
+  model String
+  costInCredits String
+  manufacturer String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

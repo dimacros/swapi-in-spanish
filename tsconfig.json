@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "preserveConstEnums": true,
+      "strictNullChecks": true,
+      "sourceMap": true,
+      "allowJs": true,
+      "rootDir": "./",
+      "outDir": ".build",
+      "moduleResolution": "node",
+    },
+    "include": ["src"],
+    "extends": "@tsconfig/node12/tsconfig.json"
+}
